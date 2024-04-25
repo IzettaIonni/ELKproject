@@ -16,10 +16,10 @@ services:
     ports:
       - "5000:5000"
     volumes:
-    - "D:/Code/Projects/ELKproject/logstash.yml:/usr/share/logstash/config/logstash.yml"
-    - "D:/Code/Projects/ELKproject:/usr/share/logstash/config"
-    - "D:/Code/Projects/ELKproject/logs:/usr/share/logstash/logs"
-    - "D:/Code/Projects/ELKproject/logstash.conf:/usr/share/logstash/pipeline/logstash.conf"
+    - "./logstash.yml:/usr/share/logstash/config/logstash.yml"
+    - ".:/usr/share/logstash/config"
+    - "./logs:/usr/share/logstash/logs"
+    - "./logstash.conf:/usr/share/logstash/pipeline/logstash.conf"
     command: ["-f", "/usr/share/logstash/config/logstash.conf"]
     depends_on:
       - elasticsearch
